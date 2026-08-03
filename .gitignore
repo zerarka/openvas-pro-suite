@@ -1,0 +1,23 @@
+# Confidential Vulnerability Reports & Scan Data
+reports/
+*.csv
+*.xlsx
+*.pdf
+*.html
+
+# Personal/Sensitive Configurations & Local Databases
+config.json
+false_positives.json
+
+# Python Environment & Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+.venv/
+
+# IDE files
+.vscode/
+.idea/

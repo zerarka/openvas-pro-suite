@@ -1,0 +1,11 @@
+# OpenVAS Pro Suite Dependencies
+ttkbootstrap>=1.10.0
+python-gvm>=22.0.0
+paramiko>=3.0.0
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+networkx>=3.0
+openpyxl>=3.1.0
+requests>=2.28.0

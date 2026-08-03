@@ -1,0 +1,15 @@
+{
+  "ssh": {
+    "host": "192.168.1.100",
+    "username": "ops",
+    "port": 22
+  },
+  "gvm": {
+    "username": "admin",
+    "socket_path": "/var/lib/docker/volumes/greenbone-community-edition_gvmd_socket_vol/_data/gvmd.sock",
+    "local_tunnel_port": 9390
+  },
+  "paths": {
+    "report_download_dir": "./reports"
+  }
+}
