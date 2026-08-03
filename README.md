@@ -54,23 +54,23 @@ In modern Greenbone Community Edition deployments, `gvmd` runs inside an isolate
 Accessing this socket remotely usually requires complex container mounts or manually executing error-prone terminal tunnels. OpenVAS Pro Suite automates this entire transport topology:
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│                      LOCAL SECURITY CONSOLE (GUI)                      │
-│   desktop_app.py — Asynchronous ThreadPool Event Loop                  │
-└──────────────────────────────────┬─────────────────────────────────────┘
-                                   │
-                (Encrypted Paramiko Direct-TCPIP Channel :9390)
-                                   │
-┌──────────────────────────────────▼─────────────────────────────────────┐
-│                 REMOTE LINUX HOST (Docker Container Host)              │
-│                                                                        │
-│   1. Automated Background Socat Listener:                              │
-│      echo 'password' | sudo -S socat TCP-LISTEN:9390,bind=127.0.0.1... │
-│                                  │                                     │
-│                                  ▼                                     │
-│   2. Docker Volume Socket:                                             │
-│      /var/lib/docker/volumes/.../_data/gvmd.sock                       │
-└────────────────────────────────────────────────────────────────────────┘
+					┌────────────────────────────────────────────────────────────────────────┐
+					│                      LOCAL SECURITY CONSOLE (GUI)                      │
+					│   desktop_app.py — Asynchronous ThreadPool Event Loop                  │
+					└──────────────────────────────────┬─────────────────────────────────────┘
+													   │
+									(Encrypted Paramiko Direct-TCPIP Channel :9390)
+													   │
+					┌──────────────────────────────────▼─────────────────────────────────────┐
+					│                 REMOTE LINUX HOST (Docker Container Host)              │
+					│                                                                        │
+					│   1. Automated Background Socat Listener:                              │
+					│      echo 'password' | sudo -S socat TCP-LISTEN:9390,bind=127.0.0.1... │
+					│                                  │                                     │
+					│                                  ▼                                     │
+					│   2. Docker Volume Socket:                                             │
+					│      /var/lib/docker/volumes/.../_data/gvmd.sock                       │
+					└────────────────────────────────────────────────────────────────────────┘
 ```
 
 1. **Automated SSH Port Forwarding:** Uses Paramiko `direct-tcpip` channel creation to bind local port `9390` securely to the remote host.
