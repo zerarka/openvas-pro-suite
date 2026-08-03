@@ -56,7 +56,7 @@ Accessing this socket remotely usually requires complex container mounts or manu
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                      LOCAL SECURITY CONSOLE (GUI)                      │
-│   desktop_app.py — Asynchronous ThreadPool Event Loop                   │
+│   desktop_app.py — Asynchronous ThreadPool Event Loop                  │
 └──────────────────────────────────┬─────────────────────────────────────┘
                                    │
                 (Encrypted Paramiko Direct-TCPIP Channel :9390)
@@ -65,11 +65,11 @@ Accessing this socket remotely usually requires complex container mounts or manu
 │                 REMOTE LINUX HOST (Docker Container Host)              │
 │                                                                        │
 │   1. Automated Background Socat Listener:                              │
-│      echo 'password' | sudo -S socat TCP-LISTEN:9390,bind=127.0.0.1...  │
+│      echo 'password' | sudo -S socat TCP-LISTEN:9390,bind=127.0.0.1... │
 │                                  │                                     │
 │                                  ▼                                     │
 │   2. Docker Volume Socket:                                             │
-│      /var/lib/docker/volumes/.../_data/gvmd.sock                      │
+│      /var/lib/docker/volumes/.../_data/gvmd.sock                       │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
